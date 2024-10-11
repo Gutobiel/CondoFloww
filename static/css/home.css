@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+#side-bar {
+    width: auto;
+    height: 100%;
+    background-color: #151d3b;
+    position: fixed;
+    top: 0;
+    left: -60px;
+    transition: left 0.3s;
+
+}
+
+#side-bar.active {
+    left: 0;
+}
+
+#side-bar:hover {
+    left: 0;
+}
+
+#side-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#side-bar ul li {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#side-bar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+#side-bar ul li a:hover {
+    background-color: #64ccc5;
+}
+
+.content {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+/* O restante do CSS permanece o mesmo */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.quadrant {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quadrant h2 {
+    margin-top: 0;
+}
+
+#lembretes-list {
+    list-style: none;
+    padding: 0;
+}
+
+#lembretes-list li {
+    margin-bottom: 10px;
+}
+
+#lembretes-list a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+#lembretes-list a:hover {
+    text-decoration: underline;
+}
