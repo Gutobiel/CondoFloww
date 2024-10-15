@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Menu Bar</title>
 </head>
 <body>
     <nav id="side-bar">
         <ul>
-            <li><a href="/Home/index.html">Home</a> </li>
+            <li><a href="home.html">Home</a> </li>
             <li><a href="/avisos/index.html">Avisos</a></li>
             <li><a href="/registro/index.html">Registros</a></li> 
             <li><a href="/cobrança/index.html">Contábil</a></li>           
@@ -48,7 +49,6 @@
         </div>
     </div>
 </div>
-
-    <script src="script.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>
