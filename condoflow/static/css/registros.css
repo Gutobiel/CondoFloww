@@ -2,13 +2,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #dda9ff;
+    background-color: #ccc;
 }
 
 #side-bar {
     width: auto;
     height: 100%;
-    background-color: #350066;
+    background-color: #151d3b;
     position: fixed;
     top: 0;
     left: -60px;
@@ -19,7 +19,6 @@ body {
 #side-bar.active {
     left: 0;
 }
-
 #side-bar:hover {
     left: 0;
 }
@@ -44,7 +43,7 @@ body {
 }
 
 #side-bar ul li a:hover {
-    background-color: #b3ff00;
+    background-color: #64ccc5;
 }
 /* O restante do CSS permanece o mesmo */
 
