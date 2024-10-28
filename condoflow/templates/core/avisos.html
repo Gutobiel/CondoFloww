@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/avisos.css' %}">
+    <script src="{% static 'js/avisos.js' %}"></script>
+    <title>Avisos</title>
+</head>
+<body>
+    <nav id="side-bar">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a> </li>
+            <li><a href="{% url 'avisos' %}">Avisos</a></li>
+            <li><a href="{% url 'registros' %}">Registros</a></li>
+            <li><a href="{% url 'cobranca' %}">Contábil</a></li>
+            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+            <li><a href="{% url 'reserva' %}">Reservas</a></li>
+            <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Avisos</h1>
+        <div class="notices">
+            <ul id="notice-list">
+                <!-- Avisos serão adicionados aqui dinamicamente -->
+            </ul>
+        </div>
+        <button id="add-notice-btn">+ Adicionar Aviso</button>
+        
+    </div>
+
+    <div id="notice-modal"action="avisos.php" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Gerenciar Aviso</h2>
+            <input type="text" id="notice-input" placeholder="Digite seu aviso">
+            <button id="save-notice-btn">Salvar</button>
+        </div>
+    </div>
+
+</body>
+</html>

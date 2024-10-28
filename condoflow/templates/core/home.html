@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Menu Bar</title>
+</head>
+<body>
+<nav id="side-bar">
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a> </li>
+        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+        <li><a href="{% url 'registros' %}">Registros</a></li> 
+        <li><a href="{% url 'cobranca' %}">Contábil</a></li>           
+        <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+        <li><a href="{% url 'reserva' %}">Reservas</a></li>
+        <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <h1>Gestão de condominios e apartamentos CondoFlow</h1>
+        <p>Oferecendo serviços desde 2023</p>
+        <p>Socializando condomínio e moradores.</p>
+
+        <div class="container">
+            <div class="quadrant" id="pessoa">
+                <h2>PESSOA</h2>
+                <p>Moradores: <span id="moradores">0</span></p>
+            </div>
+            <div class="quadrant" id="funcionarios">
+                <h2>FUNCIONÁRIOS</h2>
+                <p>Total: <span id="totalFuncionarios">0</span></p>
+                <p>Ativos: <span id="funcionariosAtivos">0</span></p>
+            </div>
+            <div class="quadrant" id="veiculos">
+                <h2>VEÍCULOS</h2>
+                <p>Vagas Restantes: <span id="vagasRestantes">0</span></p>
+                <p>Quantidade de veículos: <span id="totalVeiculos">0</span></p>
+            </div>
+            <div class="quadrant" id="lembretes">
+                <h2>LEMBRETES</h2>
+                <ul id="lembretes-list">
+                    <li><a href="#">Marcar reunião</a></li>
+                    <li><a href="{% url 'avisos' %}">Enviar aviso</a></li>
+                    <li><a href="#">Conferir reforma</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
