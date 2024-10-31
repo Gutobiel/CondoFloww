@@ -8,47 +8,50 @@
     <title>Menu Bar</title>
 </head>
 <body>
-    <nav id="side-bar">
-        <ul>
-            <li><a href="home.html">Home</a> </li>
-            <li><a href="/avisos/index.html">Avisos</a></li>
-            <li><a href="/registro/index.html">Registros</a></li> 
-            <li><a href="/cobrança/index.html">Contábil</a></li>           
-            <li><a href="/reunião/index.html">Reuniões</a></li>
-            <li><a href="/reserva/index.html">Reservas</a></li>
-            <li><a href="/configurações/index.html">Configurações</a></li>
-        </ul>
-    </nav>
+<nav id="side-bar">
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a> </li>
+        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+        <li><a href="{% url 'registros' %}">Registros</a></li> 
+        <li><a href="{% url 'cobranca' %}">Contábil</a></li>           
+        <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+        <li><a href="{% url 'reserva' %}">Reservas</a></li>
+        <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+    </ul>
+</nav>
+
+
     <div class="content">
         <h1>Gestão de condominios e apartamentos CondoFlow</h1>
-        <p>Oferecendo seviços desde 2023</p>
-        <p>Socializando condominio e moradores.</p>
-    
-    <div class="container">
-        <div class="quadrant" id="pessoa">
-            <h2>PESSOA</h2>
-            <p>Moradores: <span id="moradores">0</span></p>
-        </div>
-        <div class="quadrant" id="funcionarios">
-            <h2>FUNCIONÁRIOS</h2>
-            <p>Total: <span id="totalFuncionarios">0</span></p>
-            <p>Ativos: <span id="funcionariosAtivos">0</span></p>
-        </div>
-        <div class="quadrant" id="veiculos">
-            <h2>VEÍCULOS</h2>
-            <p>Vagas Restantes: <span id="vagasRestantes">0</span></p>
-            <p>Quantidade de veículos: <span id="totalVeiculos">0</span></p>
-        </div>
-        <div class="quadrant" id="lembretes">
-            <h2>LEMBRETES</h2>
-            <ul id="lembretes-list">
-                <li><a href="#">Marcar reunião</a></li>
-                <li><a href="/avisos/index.html">Enviar aviso</a></li>
-                <li><a href="#">Conferir reforma</a></li>
-            </ul>
+        <p>Oferecendo serviços desde 2023</p>
+        <p>Socializando condomínio e moradores.</p>
+
+        <div class="container">
+            <div class="quadrant" id="pessoa">
+                <h2>PESSOA</h2>
+                <p>Moradores: <span id="moradores">0</span></p>
+            </div>
+            <div class="quadrant" id="funcionarios">
+                <h2>FUNCIONÁRIOS</h2>
+                <p>Total: <span id="totalFuncionarios">0</span></p>
+                <p>Ativos: <span id="funcionariosAtivos">0</span></p>
+            </div>
+            <div class="quadrant" id="veiculos">
+                <h2>VEÍCULOS</h2>
+                <p>Vagas Restantes: <span id="vagasRestantes">0</span></p>
+                <p>Quantidade de veículos: <span id="totalVeiculos">0</span></p>
+            </div>
+            <div class="quadrant" id="lembretes">
+                <h2>LEMBRETES</h2>
+                <ul id="lembretes-list">
+                    <li><a href="#">Marcar reunião</a></li>
+                    <li><a href="{% url 'avisos' %}">Enviar aviso</a></li>
+                    <li><a href="#">Conferir reforma</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+
     <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>

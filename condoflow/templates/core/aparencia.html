@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurações de Aparência</title>
-    <style>
- body {
-    margin: 0;
+  <style>
+      body {
+      margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #ccc;
@@ -134,10 +135,7 @@ header {
 .menu-configs:hover {
   background-color: #64ccc5;
 }
-
-
-
-    </style>
+</style>
 </head>
 <body>
     <nav id="side-bar">
@@ -156,9 +154,9 @@ header {
         <h1 class="h1-header">Painel de Configurações</h1>
     </header>
     <nav id="config-buttons">
-        <a class="menu-configs" href="/configurações/aparencia/aparencia.html">Aparência</a>
-        <a class="menu-configs" href="/configurações/privacidade_seguranca/ps.html">Privacidade e Segurança</a>
-        <a class="menu-configs" href="/configurações/GerarRelatorio/relatorio.html">Gerar Relatório</a>
+        <a class="menu-configs" href="{% url 'aparencia' %}">Aparência</a>
+        <a class="menu-configs" href="{% url 'privacidade_seguranca' %}">Privacidade e Segurança</a>
+        <a class="menu-configs" href="{% url 'Gerar_relatorio' %}">Gerar Relatório</a>
     </nav>
 
     <div id="content-container">
