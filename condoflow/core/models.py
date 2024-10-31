@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -26,3 +27,8 @@ class Aviso(models.Model):
     def __str__(self):
         return self.titulo
 """ Avisos """
+=======
+from django.db import models
+
+# Create your models here.
+>>>>>>> 18f907a56d8691b27eea50f6cf9e9d105f9e4784
