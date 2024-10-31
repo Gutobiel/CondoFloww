@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -47,51 +46,3 @@
   </form>
 </body>
 </html>
-=======
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservas de Áreas de Lazer</title>
-  <link rel="stylesheet" href="{% static 'css/reserva.css' %}">
-  <script src="{% static 'js/reserva.js' %}"></script>
-</head>
-<body>
-  <nav id="side-bar">
-    <ul>
-            <li><a href="{% url 'home' %}">Home</a> </li>
-            <li><a href="{% url 'avisos' %}">Avisos</a></li>
-            <li><a href="{% url 'registros' %}">Registros</a></li>
-            <li><a href="{% url 'cobranca' %}">Contábil</a></li>
-            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
-            <li><a href="{% url 'reserva' %}">Reservas</a></li>
-            <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
-    </ul>
-</nav>
-<form action="dadosReservas.php" method="post">
-  <div id="container">
-    <h1>Reservas de Áreas de Lazer</h1>
-    <label for="area">Área:</label>
-    <select id="area" name="area">
-      <option value="churrasqueira">Churrasqueira</option>
-      <option value="piscina">Piscina</option>
-      <option value="academia">Academia</option>
-      <option value="quadra">Quadra de Esporte</option>
-      <option value="sala-de-jogos">Sala de Jogos</option>
-      <option value="salao-de-festa">Salão de Festas</option>
-    </select>
-
-    <label for="data">Dia:</label>
-    <input type="date" id="data" name="data">
-
-    <label for="hora">Horário:</label>
-    <input type="time" id="hora" name="hora">
-
-    <button onclick="fazerReserva()">Fazer Reserva</button>
-  </div>
-</form>
-</body>
-</html>
->>>>>>> 18f907a56d8691b27eea50f6cf9e9d105f9e4784
