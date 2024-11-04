@@ -16,6 +16,8 @@ urlpatterns = [
     path("registros/", views.registros, name="registros"),  # Página de registros
     path("cobranca/", views.cobranca, name="cobranca"),  # Página de cobranças
     path("reuniao/", views.reuniao, name="reuniao"),  # Página de reuniões
-    path("reserva/", views.reserva, name="reserva"),  # Página de reservas
+    path('reservas/', views.listar_reservas, name='listar_reservas'),
+    path('reserva/', views.reserva, name='reserva'),
+    path('reserva/criar/', views.criar_reserva, name='criar_reserva'),  # Adiciona a rota para criar_reserva
     path("configuracoes/", views.configuracoes, name="configuracoes"),  # Página de configurações
 ]

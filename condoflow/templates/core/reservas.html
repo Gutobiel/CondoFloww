@@ -20,29 +20,33 @@
       <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
     </ul>
   </nav>
-  
-  <form action="{% url 'criar_reserva' %}" method="post">
-    {% csrf_token %}
-    <div id="container">
-      <h1>Reservas de Áreas de Lazer</h1>
-      <label for="area">Área:</label>
-      <select id="area" name="area">
-        <option value="churrasqueira">Churrasqueira</option>
-        <option value="piscina">Piscina</option>
-        <option value="academia">Academia</option>
-        <option value="quadra">Quadra de Esporte</option>
-        <option value="sala-de-jogos">Sala de Jogos</option>
-        <option value="salao-de-festa">Salão de Festas</option>
-      </select>
 
-      <label for="data">Dia:</label>
-      <input type="date" id="data" name="data">
-
-      <label for="hora">Horário:</label>
-      <input type="time" id="hora" name="hora">
-
-      <button type="submit">Fazer Reserva</button>
+  <div id="container">
+    <h1>Reservas de Áreas de Lazer</h1>
+    <button class="botao-reserva" onclick="location.href='{% url 'criar_reserva' %}'">Reserve Já!</button>
+    
+  {% for area, reservas in reservas_por_area.items %}
+    <div class="area-reserva">
+      <h2>{{ area }}</h2>
+      
+      {% if reservas %}
+        <ul>
+          {% for reserva in reservas %}
+            <li>
+              Data: {{ reserva.data }}<br>
+              {% if reserva.hora %}
+                Horário: {{ reserva.hora }}<br>
+              {% endif %}
+              Reservado por: {{ reserva.usuario_nome }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Não há reservas para esta área.</p>
+      {% endif %}
     </div>
-  </form>
+  {% endfor %}
+
+  </div>
 </body>
 </html>

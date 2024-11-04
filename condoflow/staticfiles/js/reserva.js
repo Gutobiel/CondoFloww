@@ -1,9 +1,17 @@
-function fazerReserva() {
-    const area = document.getElementById("area").value;
-    const data = document.getElementById("data").value;
-    const hora = document.getElementById("hora").value;
-  
-    // Aqui você pode realizar a lógica para fazer a reserva, por exemplo, exibindo um alerta
-    alert(`Reserva feita!\nÁrea: ${area}\nData: ${data}\nHorário: ${hora}`);
+function updateForm() {
+  const area = document.getElementById('area').value;
+  const fields = document.querySelectorAll('.reservationFields');
+  fields.forEach(field => field.style.display = 'none');
+
+  if (area === 'churrasqueira') {
+      document.getElementById('churrasqueiraFields').style.display = 'block';
+  } else if (area === 'piscina') {
+      document.getElementById('piscinaFields').style.display = 'block';
+  } else if (area === 'quadra') {
+      document.getElementById('quadraFields').style.display = 'block';
+  } else if (area === 'sala_jogos') {
+      document.getElementById('salaJogosFields').style.display = 'block';
+  } else if (area === 'salao_festas') {
+      document.getElementById('salaoFestasFields').style.display = 'block';
   }
-  
+}
