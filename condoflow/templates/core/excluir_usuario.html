@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Usuário</title>
+    <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+</head>
+<body>
+    <nav id="side-bar">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avisos' %}">Avisos</a></li>
+            <li><a href="{% url 'registros' %}">Registros</a></li>
+            <li><a href="{% url 'cobranca' %}">Contábil</a></li>
+            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+            <li><a href="{% url 'reserva' %}">Reservas</a></li>
+            <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Excluir Usuário</h1>
+        <p>Você tem certeza que deseja excluir o usuário "{{ user.username }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirmar Exclusão</button>
+            <a href="{% url 'listar_usuarios' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

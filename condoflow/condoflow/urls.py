@@ -19,5 +19,9 @@ urlpatterns = [
     path('reservas/', views.listar_reservas, name='listar_reservas'),
     path('reserva/', views.reserva, name='reserva'),
     path('reserva/criar/', views.criar_reserva, name='criar_reserva'),  # Adiciona a rota para criar_reserva
+    path('usuarios/', views.listar_usuarios, name='listar_usuarios'),
+    path('usuarios/criar/', views.criar_usuario, name='criar_usuario'),
+    path('usuarios/<int:id>/editar/', views.editar_usuario, name='editar_usuario'),
+    path('usuarios/<int:id>/excluir/', views.excluir_usuario, name='excluir_usuario'),
     path("configuracoes/", views.configuracoes, name="configuracoes"),  # Página de configurações
 ]

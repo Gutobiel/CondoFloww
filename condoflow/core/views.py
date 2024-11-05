@@ -191,3 +191,55 @@ def login(request):
     return render(request, "core/login.html")
 
 
+from django.contrib.auth.models import User
+from .forms import UserForm
+
+# View para criar um usuário
+@login_required
+@user_passes_test(is_admin)
+def criar_usuario(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('listar_usuarios')
+    else:
+        form = UserForm()
+    return render(request, 'core/criar_usuario.html', {'form': form})
+
+# View para listar usuários
+@login_required
+@user_passes_test(is_admin)
+def listar_usuarios(request):
+    usuarios = User.objects.all()
+    return render(request, 'core/listar_usuarios.html', {'usuarios': usuarios})
+
+# View para editar um usuário
+@login_required
+@user_passes_test(is_admin)
+def editar_usuario(request, id):
+    user = get_object_or_404(User, id=id)
+    if request.method == 'POST':
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            if form.cleaned_data['password']:
+                user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('listar_usuarios')
+    else:
+        form = UserForm(instance=user)
+    return render(request, 'core/editar_usuario.html', {'form': form})
+
+# View para excluir um usuário
+@login_required
+@user_passes_test(is_admin)
+def excluir_usuario(request, id):
+    user = get_object_or_404(User, id=id)
+    if request.method == 'POST':
+        user.delete()
+        return redirect('listar_usuarios')
+    return render(request, 'core/excluir_usuario.html', {'user': user})
+
