@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CondoFlow{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <h1>CondoFlow</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'avisos' %}">Avisos</a></li>
+                <li><a href="{% url 'registros' %}">Registros</a></li>
+                <li><a href="{% url 'cobranca' %}">Contábil</a></li>
+                <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+                <li><a href="{% url 'reserva' %}">Reservas</a></li>
+                <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 CondoFlow</p>
+    </footer>
+</body>
+</html>

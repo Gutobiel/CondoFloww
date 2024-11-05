@@ -1,12 +1,12 @@
-function logar(){
-
+function logar() {
     var login = document.getElementById('login').value;
     var senha = document.getElementById('senha').value;
 
-    if(login == "admin" && senha == "admin"){
-        alert('Sucesso');
-        location.href = "/home/index.html";
-    }else{
-        alert('Usuário ou senha incorretos');
+    if (login === "" || senha === "") {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+    } else {
+        // Permitir que o formulário seja enviado
+        return true;
     }
 }

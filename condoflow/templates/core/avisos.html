@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/avisos.css' %}">
     <title>Avisos</title>
 </head>
 <body>
     <nav id="side-bar">
         <ul>
-            <li><a href="/Home/index.html">Home</a> </li>
-            <li><a href="/avisos/index.html">Avisos</a></li>
-            <li><a href="/registro/index.html">Registros</a></li> 
-            <li><a href="/cobrança/index.html">Contábil</a></li>           
-            <li><a href="/reunião/index.html">Reuniões</a></li>
-            <li><a href="/reserva/index.html">Reservas</a></li>
-            <li><a href="/configurações/index.html">Configurações</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avisos' %}">Avisos</a></li>
+            <li><a href="{% url 'registros' %}">Registros</a></li>
+            <li><a href="{% url 'cobranca' %}">Contábil</a></li>
+            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+            <li><a href="{% url 'reserva' %}">Reservas</a></li>
+            <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -26,10 +27,8 @@
             </ul>
         </div>
         <button id="add-notice-btn">+ Adicionar Aviso</button>
-        
     </div>
-
-    <div id="notice-modal"action="avisos.php" class="modal">
+    <div id="notice-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Gerenciar Aviso</h2>
@@ -37,7 +36,6 @@
             <button id="save-notice-btn">Salvar</button>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="{% static 'js/avisos.js' %}"></script>
 </body>
 </html>
