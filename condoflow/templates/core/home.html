@@ -8,17 +8,22 @@
     <title>Menu Bar</title>
 </head>
 <body>
-<nav id="side-bar">
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a> </li>
-        <li><a href="{% url 'avisos' %}">Avisos</a></li>
-        <li><a href="{% url 'registros' %}">Registros</a></li> 
-        <li><a href="{% url 'cobranca' %}">Contábil</a></li>           
-        <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
-        <li><a href="{% url 'reserva' %}">Reservas</a></li>
-        <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
-    </ul>
-</nav>
+    <nav id="side-bar">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avisos' %}">Avisos</a></li>
+            <li><a href="{% url 'registros' %}">Registros</a></li>
+            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+            <li><a href="{% url 'reserva' %}">Reservas</a></li>
+            <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout">Deslogar</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
 
 
     <div class="content">

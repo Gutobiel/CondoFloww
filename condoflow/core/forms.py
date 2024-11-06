@@ -1,8 +1,10 @@
 from django import forms
 from .models import Reserva, Aviso
-
 from django import forms
 from .models import Reserva
+from django import forms
+from django.contrib.auth.models import User
+from .models import Profile
 
 class ReservaForm(forms.ModelForm):
     class Meta:
@@ -33,3 +35,29 @@ class AvisoForm(forms.ModelForm):
     class Meta:
         model = Aviso
         fields = ['titulo', 'texto']
+
+
+from django import forms
+from django.contrib.auth.models import User
+
+from django import forms
+from django.contrib.auth.models import User
+from .models import Profile
+
+class UserForm(forms.ModelForm):
+    user_type = forms.ChoiceField(choices=Profile.USER_TYPE_CHOICES, label='Tipo de Usuário')
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name', 'password']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+            Profile.objects.create(user=user, user_type=self.cleaned_data['user_type'])
+        return user

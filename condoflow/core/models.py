@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+from django.db import models
 
 class Reserva(models.Model):
     AREAS_CHOICES = [
@@ -50,3 +52,16 @@ class Aviso(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+
+
+class Profile(models.Model):
+    USER_TYPE_CHOICES = [
+        ('F', 'Funcionário'),
+        ('M', 'Morador'),
+    ]
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_type = models.CharField(max_length=1, choices=USER_TYPE_CHOICES)
+
+    def __str__(self):
+        return self.user.username
