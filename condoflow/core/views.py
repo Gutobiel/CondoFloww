@@ -4,6 +4,10 @@ from .forms import ReservaForm, AvisoForm
 from .models import Reserva, Aviso
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .forms import UserForm
+from .models import Profile
+
 
 # Função para verificar se o usuário é administrador
 def is_admin(user):
@@ -171,9 +175,12 @@ def reserva(request):
     return listar_reservas(request)  # Reutiliza a função listar_avisos
 
 
+from django.contrib.auth.models import User
+
 @login_required
 def registros(request):
-    return render(request, "core/registros.html")
+    usuarios = User.objects.all()
+    return render(request, 'core/registros.html', {'usuarios': usuarios})
 
 @login_required
 def cobranca(request):
@@ -195,15 +202,14 @@ from django.contrib.auth.models import User
 from .forms import UserForm
 
 # View para criar um usuário
+
 @login_required
 @user_passes_test(is_admin)
 def criar_usuario(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])
-            user.save()
+            form.save()
             return redirect('listar_usuarios')
     else:
         form = UserForm()
@@ -215,6 +221,7 @@ def criar_usuario(request):
 def listar_usuarios(request):
     usuarios = User.objects.all()
     return render(request, 'core/listar_usuarios.html', {'usuarios': usuarios})
+
 
 # View para editar um usuário
 @login_required

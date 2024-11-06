@@ -11,7 +11,7 @@
 <body>
     <nav id="side-bar">
         <ul>
-            <li><a href="{% url 'home' %}">Home</a> </li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'avisos' %}">Avisos</a></li>
             <li><a href="{% url 'registros' %}">Registros</a></li>
             <li><a href="{% url 'cobranca' %}">Contábil</a></li>
@@ -21,7 +21,6 @@
         </ul>
     </nav>
     <div class="container">
-        
         <div class="sidebar">
             <h1>Registro de Moradores</h1>
             <h2>Moradores Cadastrados</h2>
@@ -32,8 +31,35 @@
         <div class="main-content" id="info">
             <!-- Informações de moradores serão exibidas aqui dinamicamente -->
         </div>
+        <div class="user-list">
+            <h2>Lista de Usuários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in usuarios %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.profile.get_user_type_display }}</td>
+                        <td>
+                            <a href="{% url 'editar_usuario' user.id %}">Editar</a>
+                            <a href="{% url 'excluir_usuario' user.id %}">Excluir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'criar_usuario' %}" class="btn btn-primary">Adicionar Usuário</a>
+        </div>
     </div>
-
 </body>
-
 </html>

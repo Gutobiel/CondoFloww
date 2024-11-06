@@ -14,16 +14,6 @@ const moradores = [
         engajamento: 'Ativo'
     },
     {
-        id: 1,
-        unidade: 'Bloco A, Apt 101',
-        nome: 'João da Silva',
-        veiculo: '',
-        cpf: '123.456.789-00',
-        email: 'joao@example.com',
-        telefone: '(11) 1234-5678',
-        engajamento: 'Ativo'
-    },
-    {
         id: 2,
         unidade: 'Bloco B, Apt 203',
         nome: 'Maria Oliveira',
@@ -42,29 +32,7 @@ const moradores = [
         email: 'carlos@example.com',
         telefone: '(33) 5555-5555',
         engajamento: 'Inativo'
-    },
-    {
-        id: 3,
-        unidade: 'Bloco C, Apt 305',
-        nome: 'Carlos Pereira',
-        veiculo: 'Moto - XYZ-5678',
-        cpf: '555.555.555-00',
-        email: 'carlos@example.com',
-        telefone: '(33) 5555-5555',
-        engajamento: 'Inativo'
-    },
-    {
-        id: 3,
-        unidade: 'Bloco C, Apt 305',
-        nome: 'Augusto Gabriel Rodrigues dos Santos',
-        veiculo: 'Moto - XYZ-5678',
-        cpf: '555.555.555-00',
-        email: 'carlos@example.com',
-        telefone: '(33) 5555-5555',
-        engajamento: 'Inativo'
     }
-    // Outros moradores...
-    
 ];
 
 // Adiciona moradores à lista

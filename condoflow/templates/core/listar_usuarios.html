@@ -27,6 +27,7 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Nome</th>
+                    <th>Tipo</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.profile.get_user_type_display }}</td>
                     <td>
                         <a href="{% url 'editar_usuario' user.id %}">Editar</a>
                         <a href="{% url 'excluir_usuario' user.id %}">Excluir</a>

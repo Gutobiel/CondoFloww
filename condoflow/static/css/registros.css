@@ -13,12 +13,12 @@ body {
     top: 0;
     left: -60px;
     transition: left 0.3s;
-
 }
 
 #side-bar.active {
     left: 0;
 }
+
 #side-bar:hover {
     left: 0;
 }
@@ -45,7 +45,6 @@ body {
 #side-bar ul li a:hover {
     background-color: #64ccc5;
 }
-/* O restante do CSS permanece o mesmo */
 
 .container {
     display: flex;
@@ -87,6 +86,52 @@ body {
 #info {
     display: none;
 }
-h1{
+
+.user-list {
+    flex: 2;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+h1, h2 {
     padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #151d3b;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #64ccc5;
+}
+
+.btn-primary {
+    background-color: #151d3b;
+}
+
+.btn-primary:hover {
+    background-color: #64ccc5;
 }

@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path("admin/", admin.site.urls),  # Admin
     path("", auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),  # Página de login
-    path("login/", auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),  # Alternativa de login
+    path("logout/", auth_views.LogoutView.as_view(next_page='login'), name='logout'),  # Página de logout
     path("home/", views.home, name="home"),  # Página inicial após login
     path('avisos/', views.listar_avisos, name='avisos'),
     path('avisos/criar', views.criar_aviso, name='criar_aviso'),
