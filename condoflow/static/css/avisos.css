@@ -13,7 +13,6 @@ body {
     top: 0;
     left: -60px;
     transition: left 0.3s;
-
 }
 
 #side-bar.active {
@@ -35,16 +34,27 @@ body {
     margin-bottom: 15px;
 }
 
-#side-bar ul li a {
+#side-bar ul li a,
+#side-bar ul li button {
     color: #ffffff;
     text-decoration: none;
     display: block;
     padding: 10px;
     transition: background-color 0.3s;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
-#side-bar ul li a:hover {
+#side-bar ul li a:hover,
+#side-bar ul li button:hover {
     background-color: #64ccc5;
+}
+
+.content {
+    margin-left: 200px;
+    padding: 20px;
 }
 .container {
     max-width: 600px;

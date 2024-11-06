@@ -99,6 +99,69 @@ body {
     background: var(--body-bg);
 }
 
+
+#side-bar {
+    width: auto;
+    height: 100%;
+    background-color: #151d3b;
+    position: fixed;
+    top: 0;
+    left: -60px;
+    transition: left 0.3s;
+}
+
+#side-bar.active {
+    left: 0;
+}
+
+#side-bar:hover {
+    left: 0;
+}
+
+#side-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#side-bar ul li {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#side-bar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+#side-bar ul li a:hover {
+    background-color: #64ccc5;
+}
+
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #151d3b;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #64ccc5;
+}
+
+.content {
+    margin-left: 200px;
+    padding: 20px;
+}
+
 /* LINKS */
 
 a:link, a:visited {
