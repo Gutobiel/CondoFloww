@@ -135,3 +135,25 @@ table th {
 .btn-primary:hover {
     background-color: #64ccc5;
 }
+button {
+    color: #fff;
+    background-color: #151d3b;
+}
+.logout-icon {
+    background-color: #151d3b; /* Fundo do botão com a cor desejada */
+    border: none;              /* Remove as bordas */
+    padding: 10px;             /* Adiciona algum preenchimento ao redor do ícone */
+    cursor: pointer;          /* Indica que o ícone é clicável */
+    border-radius: 5px;       /* Opcional: adiciona bordas arredondadas */
+}
+
+.logout-icon i {
+    font-size: 24px;           /* Ajusta o tamanho do ícone */
+    color: white;              /* Cor do ícone em branco */
+    transition: color 0.3s;    /* Transição de cor ao passar o mouse */
+}
+
+.logout-icon:hover i {
+    color: #64ccc5;            /* Cor do ícone ao passar o mouse */
+}
+

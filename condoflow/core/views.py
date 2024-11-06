@@ -210,7 +210,7 @@ def criar_usuario(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('listar_usuarios')
+            return redirect('registros')
     else:
         form = UserForm()
     return render(request, 'core/criar_usuario.html', {'form': form})
@@ -235,7 +235,7 @@ def editar_usuario(request, id):
             if form.cleaned_data['password']:
                 user.set_password(form.cleaned_data['password'])
             user.save()
-            return redirect('listar_usuarios')
+            return redirect('registros')
     else:
         form = UserForm(instance=user)
     return render(request, 'core/editar_usuario.html', {'form': form})
@@ -247,6 +247,6 @@ def excluir_usuario(request, id):
     user = get_object_or_404(User, id=id)
     if request.method == 'POST':
         user.delete()
-        return redirect('listar_usuarios')
+        return redirect('registros')
     return render(request, 'core/excluir_usuario.html', {'user': user})
 

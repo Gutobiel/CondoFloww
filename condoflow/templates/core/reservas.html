@@ -7,24 +7,28 @@
   <title>Reservas de Áreas de Lazer</title>
   <link rel="stylesheet" href="{% static 'css/reserva.css' %}">
   <script src="{% static 'js/reserva.js' %}"></script>
+  
 </head>
 <body>
-  <nav id="side-bar">
-    <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'avisos' %}">Avisos</a></li>
-      <li><a href="{% url 'registros' %}">Registros</a></li>
-      <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
-      <li><a href="{% url 'reserva' %}">Reservas</a></li>
-      <li><a href="{% url 'configuracoes' %}">Configurações</a></li>
-      <li>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn-logout">Deslogar</button>
-        </form>
-    </li>
+    <nav id="side-bar">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avisos' %}">Avisos</a></li>
+        {% if user.is_superuser %}
+            <li><a href="{% url 'registros' %}">Registros</a></li>
+        {% endif %}
+            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+            <li><a href="{% url 'reserva' %}">Reservas</a></li>
+            <li class="logout-item">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout-icon">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </form>
+        </li>
     </ul>
-  </nav>
+</nav>
 
   <div id="container">
     <h1>Reservas de Áreas de Lazer</h1>
