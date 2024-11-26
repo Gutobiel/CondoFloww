@@ -24,4 +24,6 @@ urlpatterns = [
     path('usuarios/<int:id>/editar/', views.editar_usuario, name='editar_usuario'),
     path('usuarios/<int:id>/excluir/', views.excluir_usuario, name='excluir_usuario'),
     path("configuracoes/", views.configuracoes, name="configuracoes"),  # Página de configurações
+    path('enviar-reuniao/', views.enviar_reuniao, name='enviar_reuniao'),
+
 ]
