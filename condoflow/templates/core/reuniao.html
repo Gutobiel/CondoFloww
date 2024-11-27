@@ -14,60 +14,62 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <nav id="side-bar">
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'avisos' %}">Avisos</a></li>
-        {% if user.is_superuser %}
-            <li><a href="{% url 'registros' %}">Registros</a></li>
-        {% endif %}
-            <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
-            <li><a href="{% url 'reserva' %}">Reservas</a></li>
-            <li class="logout-item">
-            <form method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="logout-icon">
-                    <i class="bi bi-box-arrow-right"></i>
-                </button>
-            </form>
-        </li>
+  <nav id="side-bar">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'avisos' %}">Avisos</a></li>
+      {% if user.is_superuser %}
+        <li><a href="{% url 'registros' %}">Registros</a></li>
+      {% endif %}
+      <li><a href="{% url 'reuniao' %}">Reuniões</a></li>
+      <li><a href="{% url 'reserva' %}">Reservas</a></li>
+      <li class="logout-item">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </button>
+        </form>
+      </li>
     </ul>
-</nav>
-<form action="dadosReuniao.php" method="post">
-  <div id="container">
-    <h1>Criar Reuniões</h1>
-    <label for="assunto">Assunto:</label>
-    <input type="text" id="assunto" name="assunto">
+  </nav>
+  <form id="reuniaoForm">
+    <div id="container">
+      <h1>Criar Reuniões</h1>
+      <label for="assunto">Assunto:</label>
+      <input type="text" id="assunto" name="assunto">
 
-    <label for="local">Local:</label>
-    <select id="local" name="local">
-      <option value="presencial">Presencial</option>
-      <option value="online">Online via Meeting</option>
-    </select>
-
-    <label for="data">Dia e Hora:</label>
-    <input type="datetime-local" id="data" name="data">
-
-    <label for="urgencia">Urgência:</label>
-    <select name="select">
-        <option value="valor1">Alta</option>
-        <option value="valor2" selected>Média</option>
-        <option value="valor3">Baixa</option>
+      <label for="local">Local:</label>
+      <select id="local" name="local">
+        <option value="presencial">Presencial</option>
+        <option value="online">Online via Meeting</option>
       </select>
 
-    <label for="descricao">Descrição:</label>
-    <textarea id="descricao" name="descricao" rows="4"></textarea>
+      <label for="data">Dia e Hora:</label>
+      <input type="datetime-local" id="data" name="data">
 
-    <label for="destinatarios">Enviar para:</label>
-    <select id="destinatarios" name="destinatarios">
-      <option value="funcionarios">Funcionários</option>
-      <option value="moradores">Moradores</option>
-      <option value="todos">Todos</option>
-    </select>
+      <label for="urgencia">Urgência:</label>
+      <select id="urgencia" name="urgencia">
+        <option value="alta">Alta</option>
+        <option value="media" selected>Média</option>
+        <option value="baixa">Baixa</option>
+      </select>
 
-    <button onclick="enviarConvocacao()">Enviar Convocação</button>
-  </div>
-</form>
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="4"></textarea>
 
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+
+      <label for="destinatarios">Enviar para:</label>
+      <select id="destinatarios" name="destinatarios">
+        <option value="funcionarios">Funcionários</option>
+        <option value="moradores">Moradores</option>
+        <option value="todos">Todos</option>
+      </select>
+
+      <button type="button" onclick="enviarReuniao()">Enviar Convocação</button>
+    </div>
+  </form>
 </body>
 </html>

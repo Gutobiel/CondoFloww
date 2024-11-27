@@ -250,3 +250,40 @@ def excluir_usuario(request, id):
         return redirect('registros')
     return render(request, 'core/excluir_usuario.html', {'user': user})
 
+from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+import json
+
+@csrf_exempt
+def enviar_reuniao(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        assunto = data.get('assunto')
+        local = data.get('local')
+        data_reuniao = data.get('data')
+        urgencia = data.get('urgencia')
+        descricao = data.get('descricao')
+        mensagem = data.get('mensagem')
+        destinatarios = data.get('destinatarios')
+
+        # Obter os e-mails dos destinatários
+        if destinatarios == 'funcionarios':
+            emails = User.objects.filter(profile__user_type='F').values_list('email', flat=True)
+        elif destinatarios == 'moradores':
+            emails = User.objects.filter(profile__user_type='M').values_list('email', flat=True)
+        else:  # todos
+            emails = User.objects.all().values_list('email', flat=True)
+
+        # Enviar e-mail
+        send_mail(
+            assunto,
+            f'Local: {local}\nData: {data_reuniao}\nUrgência: {urgencia}\nDescrição: {descricao}\nMensagem: {mensagem}',
+            'ghvillarea12@gmail.com',
+            emails,
+            fail_silently=False,
+        )
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
