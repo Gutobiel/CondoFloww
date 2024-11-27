@@ -1,9 +1,33 @@
 function fazerReserva() {
-    const area = document.getElementById("area").value;
-    const data = document.getElementById("data").value;
-    const hora = document.getElementById("hora").value;
+  const area = document.getElementById("area").value;
+  const data = document.getElementById("data").value;
+  const hora = document.getElementById("hora").value;
   
-    // Aqui você pode realizar a lógica para fazer a reserva, por exemplo, exibindo um alerta
-    alert(`Reserva feita!\nÁrea: ${area}\nData: ${data}\nHorário: ${hora}`);
-  }
-  
+  // Cria um objeto com os dados da reserva
+  const reservaData = {
+      area: area,
+      data: data,
+      hora: hora
+  };
+
+  // Envia os dados para o servidor usando fetch
+  fetch('/reservas/criar/', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reservaData)  // Converte os dados para o formato JSON
+  })
+  .then(response => response.json())  // Espera a resposta do servidor
+  .then(data => {
+      // Aqui você pode verificar a resposta do servidor
+      if (data.success) {
+          alert('Reserva feita com sucesso!');
+      } else {
+          alert('Erro ao fazer a reserva: ' + data.error);
+      }
+  })
+  .catch(error => {
+      alert('Erro de rede: ' + error);
+  });
+}

@@ -9,9 +9,9 @@ from .forms import UserForm
 from .models import Profile
 
 
-# Função para verificar se o usuário é administrador
 def is_admin(user):
-    return user.is_superuser
+    return user.profile.user_type == 'F'  # Ou qualquer outra verificação que você use para identificar admins
+
 
 
 # View para criar um aviso (acesso restrito a administradores)
@@ -280,7 +280,7 @@ def enviar_reuniao(request):
         send_mail(
             assunto,
             f'Local: {local}\nData: {data_reuniao}\nUrgência: {urgencia}\nDescrição: {descricao}\nMensagem: {mensagem}',
-            'ghvillarea12@gmail.com',
+            'ainnguttoo@gmail.com',
             emails,
             fail_silently=False,
         )

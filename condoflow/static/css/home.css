@@ -47,35 +47,56 @@ body {
     background-color: #64ccc5;
   }
     
-    #container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px #151d3b;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 5px;
-      padding: 5px;
-    }
+  #container {
+    margin-left: 120px; /* Aumente a margem à esquerda para dar mais espaço entre a barra lateral e o conteúdo */
+    margin-right: 20px; /* Adicione uma margem direita para centralizar o conteúdo */
+    max-width: 800px;
+    margin: 20px auto; /* Centraliza horizontalmente o conteúdo */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #151d3b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px; /* Adiciona um pequeno espaço para o conteúdo não ficar colado na borda */
+}
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
   
   input[type="text"], select, input[type="datetime-local"], input[type="checkbox"], textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-    
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #151d3b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #64ccc5;
+  }
+  
     button {
       padding: 10px 20px;
       background-color: #151d3b;
