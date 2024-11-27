@@ -45,13 +45,24 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 class UserForm(forms.ModelForm):
-    user_type = forms.ChoiceField(choices=Profile.USER_TYPE_CHOICES, label='Tipo de Usuário')
+    user_type = forms.ChoiceField(
+        choices=Profile.USER_TYPE_CHOICES,
+        label='Tipo de Usuário',
+        widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Selecione o tipo de usuário'})
+    )
 
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password']
         widgets = {
-            'password': forms.PasswordInput(),
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome de Usuário'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Primeiro Nome'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Último Nome'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Senha'}),
+        }
+        help_texts = {
+            'username': None,  # Remove o help_text
         }
 
     def save(self, commit=True):
