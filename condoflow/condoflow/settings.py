@@ -143,4 +143,7 @@ EMAIL_HOST_PASSWORD = 'mzct otiu hwon xmnn'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = '/home/' # URL para onde o usuário será redirecionado após o login
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/home/' 
+LOGOUT_REDIRECT_URL = '/login/'  

@@ -65,10 +65,7 @@ def listar_reservas(request):
     reservas_por_area = {
         'Churrasqueira': reservas.filter(area='churrasqueira'),
         'Piscina': reservas.filter(area='piscina'),
-        'Quadra de Esportes': reservas.filter(area='quadra'),
-        'Sala de Jogos': reservas.filter(area='sala-de-jogos'),  # Corrigido o nome
-        'Salão de Festas': reservas.filter(area='salao-de-festa'),  # Corrigido o nome
-        
+        'Quadra de Esportes': reservas.filter(area='quadra'),     
     }
     return render(request, 'core/reservas.html', {'reservas_por_area': reservas_por_area})
 

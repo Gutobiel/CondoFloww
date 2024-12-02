@@ -3,9 +3,9 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #ccc;
-}
-
-#side-bar {
+  }
+  
+  #side-bar {
     width: auto;
     height: 100%;
     background-color: #151d3b;
@@ -13,44 +13,39 @@ body {
     top: 0;
     left: -60px;
     transition: left 0.3s;
-}
-
-#side-bar.active {
+  
+  }
+  
+  #side-bar.active {
     left: 0;
-}
-
-#side-bar:hover {
+  }
+  
+  #side-bar:hover {
     left: 0;
-}
-
-#side-bar ul {
+  }
+  
+  #side-bar ul {
     list-style: none;
     padding: 0;
     margin: 20px 0;
-}
-
-#side-bar ul li {
+  }
+  
+  #side-bar ul li {
     text-align: center;
     margin-bottom: 15px;
-}
-
-#side-bar ul li a,
-#side-bar ul li button {
+  }
+  
+  #side-bar ul li a {
     color: #ffffff;
     text-decoration: none;
     display: block;
     padding: 10px;
     transition: background-color 0.3s;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-#side-bar ul li a:hover,
-#side-bar ul li button:hover {
+  }
+  
+  #side-bar ul li a:hover {
     background-color: #64ccc5;
-}
+  }
 
 .content {
     margin-left: 200px;
@@ -129,7 +124,7 @@ body {
     max-width: 600px; /* Largura máxima do formulário */
     margin: 20px auto; /* Margem automática para centralizar horizontalmente */
     padding: 20px; /* Preenchimento interno */
-    background-color: #fff; /* Fundo branco */
+    background-color: #151d3b;
     border-radius: 5px; /* Bordas arredondadas */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para o formulário */
 }
@@ -160,6 +155,19 @@ body {
 }
 
 #notice-form button:hover {
-    background-color: #64ccc5; /* Cor de fundo ao passar o mouse */
+  background-color: #151d3b; /* Cor de fundo ao passar o mouse */
 }
 
+button {
+  padding: 10px 20px;
+  background-color: #151d3b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #64ccc5;
+}

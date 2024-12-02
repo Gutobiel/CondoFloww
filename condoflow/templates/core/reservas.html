@@ -14,6 +14,12 @@
   <script src="{% static 'js/reserva.js' %}"></script>
   
 </head>
+<style>body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ccc;
+}</style>
 <body>
     <nav id="side-bar">
         <ul>
@@ -36,9 +42,10 @@
 </nav>
 
   <div id="container">
-    <h1>Reservas de Áreas de Lazer</h1>
+    <center><h1>Reservas de Áreas de Lazer</h1>
     <button class="botao-reserva" onclick="location.href='{% url 'criar_reserva' %}'">Reserve Já!</button>
-    
+    <br><br>
+    <h3>Reservas marcadas</h3></center>
   {% for area, reservas in reservas_por_area.items %}
     <div class="area-reserva">
       <h2>{{ area }}</h2>
