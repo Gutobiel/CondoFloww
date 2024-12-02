@@ -6,17 +6,10 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import UserForm
-from .models import Profile
-
-
-def is_admin(user):
-    return user.profile.user_type == 'F'  # Ou qualquer outra verificação que você use para identificar admins
-
 
 
 # View para criar um aviso (acesso restrito a administradores)
 @login_required
-@user_passes_test(is_admin)
 def criar_aviso(request):
     if request.method == 'POST':
         form = AvisoForm(request.POST, request.FILES)
@@ -35,7 +28,6 @@ def listar_avisos(request):
 
 # View para editar um aviso
 @login_required
-@user_passes_test(is_admin)
 def editar_aviso(request, id):
     aviso = get_object_or_404(Aviso, id=id)
     
@@ -51,7 +43,6 @@ def editar_aviso(request, id):
 
 # View para confirmar a exclusão de um aviso
 @login_required
-@user_passes_test(is_admin)
 def excluir_aviso(request, id):
     aviso = get_object_or_404(Aviso, id=id)
     if request.method == 'POST':
@@ -204,7 +195,6 @@ from .forms import UserForm
 # View para criar um usuário
 
 @login_required
-@user_passes_test(is_admin)
 def criar_usuario(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
@@ -217,7 +207,6 @@ def criar_usuario(request):
 
 # View para listar usuários
 @login_required
-@user_passes_test(is_admin)
 def listar_usuarios(request):
     usuarios = User.objects.all()
     return render(request, 'core/listar_usuarios.html', {'usuarios': usuarios})
@@ -225,7 +214,6 @@ def listar_usuarios(request):
 
 # View para editar um usuário
 @login_required
-@user_passes_test(is_admin)
 def editar_usuario(request, id):
     user = get_object_or_404(User, id=id)
     if request.method == 'POST':
@@ -242,7 +230,6 @@ def editar_usuario(request, id):
 
 # View para excluir um usuário
 @login_required
-@user_passes_test(is_admin)
 def excluir_usuario(request, id):
     user = get_object_or_404(User, id=id)
     if request.method == 'POST':
